@@ -51,7 +51,7 @@ export class TodoController {
         const user = req.user.user;
        
         
-        return this.todoService.findAllTodos(user.id)
+        return this.todoService.findAllTodos(user.email)
     }
 
     @UseGuards(JwtAuthGuard)

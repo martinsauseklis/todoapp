@@ -24,11 +24,11 @@ export class TodoService {
         return from(this.todoRepository.findOne({where: {dateTime}}))
     }
 
-    findAllTodos(id: number): Observable<Todo[]> {
+    findAllTodos(email: string): Observable<Todo[]> {
         
-        return from(this.userService.findOne(id)).pipe(
+        return from(this.userService.findByMail(email)).pipe(
             switchMap((user: User) => {
-                return this.todoRepository.find({where: {userId: id}})
+                return this.todoRepository.find({where: {userId: user.id}})
             })
         )
     }
