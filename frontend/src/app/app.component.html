@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row >
+    <span class="example-spacer">Todo list</span>
+    <p style="margin-top: 5px; display: block; margin-right: 5px;">{{loggedEmail()}}</p>
+    <button mat-raised-button (click)="onClick()">{{buttonValue()}}</button>
+  </mat-toolbar-row>
+
+ 
+</mat-toolbar>
+<router-outlet></router-outlet>

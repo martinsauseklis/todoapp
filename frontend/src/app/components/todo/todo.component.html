@@ -1,0 +1,26 @@
+<div class="main-div">
+    <div class="add-item">
+        <form [formGroup]="addTodoForm" (ngSubmit)="onSubmit()" class="todo">
+            <mat-form-field>
+                <mat-label>Add new todo item</mat-label>
+                <input matInput formControlName="todoItem" type="text" class="add-text">
+                <button *ngIf="addTodoForm.value['todoItem']"  matSuffix mat-icon-button aria-label="Clear" type="reset" >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button color="accent" [disabled]="!addTodoForm.valid" type="submit">Add</button>
+        </form>
+    </div>
+    <ul *ngFor="let todo of todos">
+        <li class="todo" >
+            
+            <input type="checkbox" [checked]="todo.completed" [name]="todo.id" (change)="switchComplete($event)">
+            <h2>{{todo.task}}</h2>
+          
+            <button mat-mini-fab color="accent" [id]="todo.id" (click)="deleteTodo($event)"><mat-icon>close</mat-icon></button>            
+        </li>
+    </ul>
+    
+    
+    
+</div>

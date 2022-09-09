@@ -1,0 +1,33 @@
+25.07 - sākums 13.15 līdz 14.15
+26.07 - sākums 12.15 līdz 12.30. 13.40 līdz 14.10, 15.55 līdz 17.00
+27.07 - sākums 12.15 līdz 13:15
+28.07 - sākums 16.05 līdz 16.45 un 20.17 līdz 20.42
+29.07 - sākums 16.07 līdz 17.00
+01.08 - sākums 12.11 līdz 12.28 un 13.15 līdz 13.49
+03.08 - sākums 19.38 līdz 20.38 todo service turpināt
+04.08 - sākums 20.20 līdz 20.50 tikt galā ar create todo iekš controller
+05.08 - sākums 12.50 līdz 13.50 updateTodo... kaut kas neapdeitoja
+08.08 - sākums 19.54 līdz 20.55
+09.08 - sākums 11.27 līdz 11.57 un 14.00 līdz 14.45
+10.08 - sākums 11.17 līdz 12.22 Jātiek galā ar button stroked u c
+11.08 - sākums 10.55 līdz 11.15 un 11.30 līdz 12.10 turpinām ar reactive forms
+12.08 - sākums 10.57 līdz 11.50 un 15.58 līdz 16.13 CORS
+15.08 - sākums 18.05 līdz 19.10 No progresss wit CORS
+16.08 - sākums 12.20 līdz 13.20 No progress wit CORS
+17.08 - sākums 18.32 līdz 18.39 un 18.52 līdz 19.15 un no 19.22 līdz 19.52 ar register formu tikt galā
+18.08 - sākums 16.01 līdz 17.01 kaut kas ar app-routing.module nogāja greizi
+19.08 - sākums 12.01 līdz 13.01 tikt galā ar todo retreiving
+22.08 - sākums 19.55 līdz 20.55 tāpat ar get request... kaut kā jānosūta ir laikam user id. JwtIntercept nezinu, ko īsti dara, vai pievieno headerī
+23.08 - sākums 14.38 līdz 14.55 un 15.38 līdz 16.22 tikt galā ar Todo[] Observable
+24.08 - sākums 19.36 līdz 20.00 un 20.57 līdz 21.33 salikt vajag tagad eventus, lai iet, kuri todo izdarīti
+25.08 - sākums 18.39 līdz 19.13 un 21.47 līdz 22.08 un 22.40 līdz 22.47 - request jāpievieno user, lai to varētu ielikt iekšā http post todo. JwtHelper?
+26.08 - sākums 15.13 līdz 16.14... neveiksmīgi... laikam vajag likt iekšā tajā html nevis async pipe, bet gan vienkārši array no kā ņemam info. Tad renderējās lkm
+29.08 - sākums 22.50 līdz 23.51 izveidoju dzēšanu todo, bet vajag lai rerendero lapu
+30.08 - sākums 19.49 līdz 20.49 nu nerenderējās, bet laikam labāk ir paskatīties vēl hookus, ko varētu pielietot, KAs izraisa komponentes rerender?
+31.08 - sākums 18.30 līdz 19.30 gandrīz perfekti ar to pievienošanos. KAut kur gan uzkarās nedaudz
+01.09 - sākums 18.53 līdz 19.00 un 19.06 līdz 19.19 un 19.21 līdz 20.03. Tikt galā $todos uz todos pārveidot.... ar usnhift un trackBy moš saies kaut kā rerenderings
+02.09 - sākums 21.10 līdz 21.29
+05.09 - sākums 20.35 līdz 21.35 change detection...
+06.09 - sākums 19.52 līdz 20.52 fookin map vs switchmap
+07.09 - sākums 18.45 līdz 19.45 atliek tikai UI
+08.09 - sākums 15.23 līdz 15.40 un 17.45 līdz 18.38 un 18.40 līdz 

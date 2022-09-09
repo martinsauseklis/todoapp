@@ -1,0 +1,67 @@
+.main-div {
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content:stretch;
+    height: 75%;
+
+    
+
+}
+ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    
+    padding: 0;
+}
+
+.add-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    height: 35px;
+    
+    
+}
+.todo {
+    display: flex;
+   
+    width: 45%;
+    align-items: center;
+    margin-bottom: 5px;
+    
+}
+
+.add-text {
+    margin-left: 3px;
+    width: 100%;
+}
+
+h2 {
+    margin-left: 5px;
+    height: 100%;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    margin-right: 3px;
+    justify-self: end;
+}
+
+mat-form-field {
+    
+    width: 100%;
+    margin-right: 5px;
+}
+
+
+
