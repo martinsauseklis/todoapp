@@ -1,14 +1,18 @@
 
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
     <div class="container">
         <mat-form-field>
-            <input matInput placeholder="Email" formControlName="email">
+            <input matInput (ngModelChange)="clearError()" placeholder="Email" formControlName="email">
             <mat-hint *ngIf="registerForm.controls['email'].errors">Email is required</mat-hint>
         </mat-form-field>
         <mat-form-field>
             <input type="password" matInput placeholder="Password" formControlName="password">
             <mat-hint *ngIf="registerForm.controls['password'].errors">Password is required</mat-hint>
+            
         </mat-form-field>
+        
         <button mat-flat-button color="primary" [disabled]="!registerForm.valid" type="submit">Register</button>
+        <mat-hint style="color: red;" *ngIf="error">{{error}}</mat-hint>
+        <mat-hint style="color: green;" *ngIf="registrationSuccess">{{registrationSuccess}}</mat-hint>
     </div>
 </form>

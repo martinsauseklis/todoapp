@@ -20,10 +20,19 @@ export interface Todo  {
 })
 export class TodoComponent implements OnInit {
 
-  
+  remainingTodos: number;
+  totalTodos: number;
   
   addTodoForm: FormGroup;
   todos: Todo[];
+  style = (id?: number): string => {
+    const todo = this.todos.filter(el => el.id === id)[0]
+    if (todo.completed) {
+      return "text-decoration: line-through; color: green;"
+    }
+
+    return "";
+  }
   
 
   
@@ -35,12 +44,19 @@ export class TodoComponent implements OnInit {
  
   ngOnInit(): void {
     this.todoService.getTodoItems().subscribe({
-      next: (todos: Todo[]) => this.todos = todos.sort(this.sorterFn)
+      next: (todos: Todo[]) => {
+        this.todos = todos.sort(this.sortByComplete);
+        this.totalTodos = this.todos.length;
+        this.remainingTodos = this.totalTodos - this.todos.filter(el => el.completed ===true).length;
+        
+      }
     });
     
    this.addTodoForm = new FormGroup({
     todoItem: new FormControl(null, [Validators.required])
    })
+
+  
 
    
   }
@@ -49,6 +65,8 @@ export class TodoComponent implements OnInit {
   
 
   onSubmit() {
+    this.remainingTodos++;
+    this.totalTodos++;
     let todo: Todo = {
       
       task: this.addTodoForm.value['todoItem'],
@@ -63,7 +81,7 @@ export class TodoComponent implements OnInit {
       {
         next: () => this.todoService.getTodoItems().subscribe({
           next: (todos: Todo[]) => {
-            this.todos = todos.sort(this.sorterFn)
+            this.todos = todos.sort(this.sortByComplete)
             
           }
         })
@@ -71,23 +89,53 @@ export class TodoComponent implements OnInit {
     )
   }
 
-  switchComplete(event: any){
-    const isChecked = event.currentTarget.checked;
-    const id = event.currentTarget.name;
-    console.log(id)
-    const todo: Todo = this.todos.filter(todo => todo.id === parseInt(id))[0];
+  switchComplete(event: any, id?: number){
+    const isChecked = event.checked;
+    
+   
+    const todo: Todo = this.todos.filter(todo => todo.id === Number(id))[0];
+    
     todo.completed = isChecked;
 
-    
+    if (isChecked){
+      this.remainingTodos--;
+    } else {
+      this.remainingTodos++;
+    }
+
+   
 
     
-    return this.todoService.updateTodo(todo).subscribe()
+    return this.todoService.updateTodo(todo).pipe(
+      switchMap(() => this.todoService.getTodoItems())
+    ).subscribe({
+      next: (todos: Todo[]) => this.todos = todos.sort(this.sortByComplete)
+    })
         
   }
 
-  sorterFn(a: Todo, b: Todo){ return Number(b.dateTime) - Number(a.dateTime)}
+  sortByComplete(a: Todo, b: Todo){ 
+  if (a.completed && !b.completed){
+      return 1
+  } else if (!a.completed && b.completed) {
+      return -1
+  } else if (a.completed && b.completed){
+    return Number(b.dateTime) - Number(a.dateTime);
+  } else if (!a.completed && !b.completed){
+    return Number(b.dateTime) - Number(a.dateTime);
+  } else {
+    return 0
+  }
+
+    
+    
+  }
+
+  
 
   deleteTodo(event: any){
+    
+    this.totalTodos--;
     let target =  event.currentTarget;
     const id = target.attributes.id.value;
     
@@ -98,7 +146,7 @@ export class TodoComponent implements OnInit {
     
     return this.todoService.deleteTodo(id).subscribe({
       next: () => this.todoService.getTodoItems().subscribe({
-        next: (todos: Todo[]) => this.todos = todos.sort(this.sorterFn)
+        next: (todos: Todo[]) => this.todos = todos.sort(this.sortByComplete)
       })
     })
       

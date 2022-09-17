@@ -14,7 +14,7 @@ import { AuthService } from './service/auth.service';
             useFactory: async (configService: ConfigService) => ({
                 secret: process.env.JWT_SECRET,
                 signOptions: {
-                    expiresIn: '1000s'
+                    expiresIn: '10000s'
                 }
             })
         })

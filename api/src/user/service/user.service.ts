@@ -27,7 +27,11 @@ export class UserService {
                         return result;
                         
                     }),
-                    catchError(err => throwError(() => err))
+                    catchError((err: Error) => throwError(() => {
+                       
+
+                        return new Error("User already registered")
+                    }))
                 )
             })
         )

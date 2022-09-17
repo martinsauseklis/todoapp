@@ -37,7 +37,7 @@ export class TodoService {
           
             
                 return from(this.todoRepository.update(todo.id, todo)).pipe(
-                    switchMap(() => this.findOne(Number(todo.id)))
+                    switchMap(() => this.findOne(todo.id))
                 )
     }
 

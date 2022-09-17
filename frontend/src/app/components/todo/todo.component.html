@@ -11,16 +11,11 @@
             <button mat-raised-button color="accent" [disabled]="!addTodoForm.valid" type="submit">Add</button>
         </form>
     </div>
+    <p>{{remainingTodos}} of {{totalTodos}} tasks remaining</p>
     <ul *ngFor="let todo of todos">
         <li class="todo" >
-            
-            <input type="checkbox" [checked]="todo.completed" [name]="todo.id" (change)="switchComplete($event)">
-            <h2>{{todo.task}}</h2>
-          
+            <mat-checkbox [checked]="todo.completed" [id]="todo.id+'c'" (change)="switchComplete($event, todo.id)"><h2 [style]="style(todo.id)">{{todo.task}}</h2></mat-checkbox>
             <button mat-mini-fab color="accent" [id]="todo.id" (click)="deleteTodo($event)"><mat-icon>close</mat-icon></button>            
         </li>
     </ul>
-    
-    
-    
 </div>

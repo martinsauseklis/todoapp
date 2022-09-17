@@ -43,6 +43,12 @@ ul {
     width: 100%;
 }
 
+p {
+    display: block;
+    width: 45%;
+    text-align: right;
+}
+
 h2 {
     margin-left: 5px;
     height: 100%;
@@ -50,6 +56,12 @@ h2 {
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+mat-checkbox {
+    display: block;
+    width: 100%;
+    
 }
 
 button {
@@ -62,6 +74,8 @@ mat-form-field {
     width: 100%;
     margin-right: 5px;
 }
+
+
 
 
 

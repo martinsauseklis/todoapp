@@ -3,7 +3,12 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from './services/authentication-service/authentication.service';
 
+enum buttonValue{
+  SING_IN = 'Sign In',
+  REGISTER = 'Register',
+  SIGN_OUT = 'Sign Out'
 
+}
 
 @Component({
   selector: 'app-root',
@@ -42,9 +47,9 @@ export class AppComponent {
         this.router.navigate(['/register']);
         break;
       case 'Sign Out':
-        
+        this.router.navigate(['']);
         this.authService.signOut();
-        this.router.navigate([''])
+        
         break;
     }
   }
